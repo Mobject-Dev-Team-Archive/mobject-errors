@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{de0a1f40-350a-40fc-9592-51df4de30282}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>mobject_errors</Name>
+    <ProgramVersion>3.1.4024.0</ProgramVersion>
+    <Application>{e3655939-967e-43fd-ac6a-ec807aa875f4}</Application>
+    <TypeSystem>{0d47e015-c30c-4368-b3b3-7ffa25aa6dc2}</TypeSystem>
+    <Implicit_Task_Info>{fced8495-e5c7-4ee1-aea1-73f2367638e7}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{c1e6d052-1dc2-4925-a912-ea5218084413}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{1e5292a5-ea4a-4111-aaae-40904e3f0e86}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{dc64101c-7c07-472f-991d-170bc0df9166}</LibraryReferences>
+    <Company>mobject</Company>
+    <Released>false</Released>
+    <Title>mobject-errors</Title>
+    <ProjectVersion>0.1.0</ProjectVersion>
+    <DefaultNamespace>mobject-errors</DefaultNamespace>
+    <Placeholder>mobject-errors</Placeholder>
+    <Author>mobject dev team</Author>
+    <CombineIds>true</CombineIds>
+    <LibraryCategories>
+      <LibraryCategory xmlns="">
+        <Id>{1060d52a-c0ce-4c5f-a334-01a7e2e0ab1e}</Id>
+        <Version>1.0.0.0</Version>
+        <DefaultName>mobject</DefaultName>
+      </LibraryCategory>
+    </LibraryCategories>
+    <SelectedLibraryCategories>
+      <Id xmlns="">{1060d52a-c0ce-4c5f-a334-01a7e2e0ab1e}</Id>
+    </SelectedLibraryCategories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\I_Error.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="mobject-errors.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" />
+      <d n="Values" t="Hashtable" />
+    </o>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>

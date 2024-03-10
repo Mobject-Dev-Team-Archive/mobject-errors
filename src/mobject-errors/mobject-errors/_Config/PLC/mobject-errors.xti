@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.55" ClassName="CNestedPlcProjDef">
+	<Project GUID="{DE0A1F40-350A-40FC-9592-51DF4DE30282}" Name="mobject-errors" PrjFilePath="..\..\mobject-errors\mobject-errors.plcproj" TmcFilePath="..\..\mobject-errors\mobject-errors.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e"/>
+</TcSmItem>
