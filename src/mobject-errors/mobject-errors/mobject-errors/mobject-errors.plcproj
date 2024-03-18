@@ -36,16 +36,10 @@
     </SelectedLibraryCategories>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ErrorHandler\ErrorLogger.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Errors\Error.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Interfaces\I_Error.TcIO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Interfaces\I_ErrorLogger.TcIO">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -63,17 +57,10 @@
   <ItemGroup>
     <Folder Include="Interfaces" />
     <Folder Include="Errors" />
-    <Folder Include="ErrorHandler" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryReference Include="mobject-collections,1.1.0,mobject">
-      <Namespace>mobject_collections</Namespace>
-    </LibraryReference>
     <LibraryReference Include="mobject-disposable,1.0.0,mobject">
       <Namespace>mobject_disposable</Namespace>
-    </LibraryReference>
-    <LibraryReference Include="mobject-enumerable,1.1.0,mobject">
-      <Namespace>mobject_enumerable</Namespace>
     </LibraryReference>
     <LibraryReference Include="mobject-serialization,0.4.0,mobject">
       <Namespace>mobject_serialization</Namespace>
