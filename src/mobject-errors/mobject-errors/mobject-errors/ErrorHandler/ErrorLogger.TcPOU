@@ -4,7 +4,7 @@
     <Declaration><![CDATA[{attribute 'linkalways'} 
 {attribute 'no_explicit_call' := 'This FB is a CLASS and must be accessed using methods or properties'}
 {attribute 'enable_dynamic_creation'}
-FUNCTION_BLOCK ErrorLogger
+FUNCTION_BLOCK ErrorLogger IMPLEMENTS I_ErrorLogger
 VAR
 	errors : Stack;
 END_VAR
@@ -33,7 +33,11 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[DisposeErrors();]]></ST>
+        <ST><![CDATA[IF bInCopyCode THEN
+	RETURN;
+END_IF
+
+DisposeErrors();]]></ST>
       </Implementation>
     </Method>
     <Method Name="LogError" Id="{211b9ba2-942b-0a97-0856-e1b6d9b09cc0}">
@@ -43,7 +47,7 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[]]></ST>
+        <ST><![CDATA[errors.Push(Error);]]></ST>
       </Implementation>
     </Method>
     <Method Name="Reset" Id="{6e679daf-ef3a-0894-0c22-3c6d6125a230}">
