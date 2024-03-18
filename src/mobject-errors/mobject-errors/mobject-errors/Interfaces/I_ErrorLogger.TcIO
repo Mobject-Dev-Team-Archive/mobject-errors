@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="I_ErrorLogger" Id="{ab5566d6-c0be-0a3d-1ded-148eb7b77941}">
+    <Declaration><![CDATA[INTERFACE I_ErrorLogger
+]]></Declaration>
+    <Method Name="LogError" Id="{700f3e71-44ce-075e-19f5-8ed8188d43e5}">
+      <Declaration><![CDATA[METHOD PUBLIC LogError
+VAR_INPUT
+	Error : I_Error;
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

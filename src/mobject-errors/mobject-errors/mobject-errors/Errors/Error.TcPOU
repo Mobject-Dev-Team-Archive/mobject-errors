@@ -4,7 +4,7 @@
     <Declaration><![CDATA[{attribute 'linkalways'} 
 {attribute 'no_explicit_call' := 'This FB is a CLASS and must be accessed using methods or properties'}
 {attribute 'enable_dynamic_creation'}
-FUNCTION_BLOCK ABSTRACT Error IMPLEMENTS I_Error
+FUNCTION_BLOCK ABSTRACT Error EXTENDS Disposable IMPLEMENTS I_Error
 VAR
 END_VAR
 ]]></Declaration>
@@ -12,9 +12,9 @@ END_VAR
       <ST><![CDATA[]]></ST>
     </Implementation>
     <Folder Name="Protected" Id="{887f3b17-8e31-0b5c-2d86-65ac4f391b4a}" />
-    <Property Name="ErrorCode" Id="{443c9683-8c58-0776-1b0f-80ac57c3449b}">
-      <Declaration><![CDATA[PROPERTY ABSTRACT ErrorCode : UDINT]]></Declaration>
-      <Get Name="Get" Id="{02119e76-31be-01d2-02bf-96d7f11555ee}">
+    <Property Name="ErrorType" Id="{11145bee-4da1-0817-0e4f-35f42a13f4cf}">
+      <Declaration><![CDATA[PROPERTY ABSTRACT ErrorType : T_MAXSTRING]]></Declaration>
+      <Get Name="Get" Id="{e5a572a9-032a-0662-2f65-dd9e5d3c9125}">
         <Declaration><![CDATA[VAR
 END_VAR
 ]]></Declaration>
@@ -23,6 +23,24 @@ END_VAR
         </Implementation>
       </Get>
     </Property>
+    <Method Name="IsSameAs" Id="{bc44ddfd-c2fb-0abb-0c66-a960121d43d1}">
+      <Declaration><![CDATA[METHOD PUBLIC IsSameAs : BOOL
+VAR_INPUT
+	Error : I_Error;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF Error = 0 THEN
+	RETURN;
+END_IF
+
+IF Error.ErrorType <> THIS^.ErrorType THEN
+	RETURN;
+END_IF
+
+IsSameAs := TRUE;]]></ST>
+      </Implementation>
+    </Method>
     <Property Name="Message" Id="{e2a32734-1d54-0a56-07cb-dfb54be1f349}">
       <Declaration><![CDATA[PROPERTY PUBLIC ABSTRACT Message : T_MAXSTRING]]></Declaration>
       <Get Name="Get" Id="{dc55775d-b2bb-0231-3138-de763b7ce1cb}">
@@ -52,8 +70,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[Serializer.StartObject();
+Serializer.AddKeyString('errorType',ErrorType);
 Serializer.AddKeyString('message',Message);
-Serializer.AddKeyUdint('errorCode',ErrorCode);
 OnSerialize(Serializer);
 Serializer.EndObject();]]></ST>
       </Implementation>

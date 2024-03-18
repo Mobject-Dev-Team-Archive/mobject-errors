@@ -4,7 +4,13 @@
 
 - mobject-errors
 
+- Interfaces
+
   - [I_Error](I_Error.md)
+
+- Classes
+
+  - [Error](Error.md)
 
 - Guides
 

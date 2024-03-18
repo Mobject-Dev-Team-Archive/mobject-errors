@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="ErrorLogger" Id="{67c4d276-c655-02a2-1f19-03bde5c38a63}" SpecialFunc="None">
+    <Declaration><![CDATA[{attribute 'linkalways'} 
+{attribute 'no_explicit_call' := 'This FB is a CLASS and must be accessed using methods or properties'}
+{attribute 'enable_dynamic_creation'}
+FUNCTION_BLOCK ErrorLogger
+VAR
+	errors : Stack;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Folder Name="Destructor" Id="{2a523b99-6b32-0260-0439-f620c7c2f279}" />
+    <Folder Name="Private" Id="{5e21615e-811f-0628-0d5e-bff1e913ce77}" />
+    <Method Name="DisposeErrors" Id="{b15bc2aa-ba76-0428-16d3-e97cd70a1668}" FolderPath="Private\">
+      <Declaration><![CDATA[METHOD PRIVATE DisposeErrors : BOOL
+VAR
+	error : I_Error;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[WHILE errors.TryPop(error) DO
+	error.Dispose();
+END_WHILE]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_exit" Id="{e9fbe978-fd6b-0fd3-29a9-9cdbf0b00bad}" FolderPath="Destructor\">
+      <Declaration><![CDATA[METHOD FB_exit : BOOL
+VAR_INPUT
+	bInCopyCode : BOOL; // if TRUE, the exit method is called for exiting an instance that is copied afterwards (online change).
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[DisposeErrors();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="LogError" Id="{211b9ba2-942b-0a97-0856-e1b6d9b09cc0}">
+      <Declaration><![CDATA[METHOD PUBLIC LogError
+VAR_INPUT
+	Error : I_Error;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Reset" Id="{6e679daf-ef3a-0894-0c22-3c6d6125a230}">
+      <Declaration><![CDATA[METHOD PUBLIC Reset : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[DisposeErrors();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="SerializeWith" Id="{e0116b18-4f2d-0d9a-3b79-88c6b30f557c}">
+      <Declaration><![CDATA[METHOD PUBLIC SerializeWith
+VAR_INPUT
+	Serializer : I_Serializer;
+END_VAR
+VAR
+	enumerator : I_ForwardEnumerator;
+	error : I_Error;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF errors.Count = 0 THEN
+	RETURN;
+END_IF
+
+Serializer.AddKey('errors');
+Serializer.StartArray();
+
+enumerator := errors.GetEnumerator();
+
+WHILE enumerator.MoveNext() DO
+	IF enumerator.TryGet(error) THEN
+		error.SerializeWith(Serializer);
+	END_IF
+END_WHILE
+
+enumerator.Dispose();
+Serializer.EndArray();]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
