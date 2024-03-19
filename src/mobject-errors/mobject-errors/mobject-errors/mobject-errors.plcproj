@@ -39,6 +39,9 @@
     <Compile Include="Errors\Error.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Errors\NullError.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Interfaces\I_Error.TcIO">
       <SubType>Code</SubType>
     </Compile>
