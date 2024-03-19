@@ -3,6 +3,13 @@
   <Itf Name="I_Error" Id="{039ad3bf-854e-4ff6-9567-e14fd8d09ff8}">
     <Declaration><![CDATA[INTERFACE I_Error EXTENDS I_Serializable, I_Disposable
 ]]></Declaration>
+    <Method Name="Accept" Id="{86ed3858-8652-052f-3064-accf56e64dc5}">
+      <Declaration><![CDATA[METHOD PUBLIC Accept
+VAR_INPUT
+	Visitor : I_ErrorVisitor;
+END_VAR
+]]></Declaration>
+    </Method>
     <Property Name="ErrorType" Id="{c7f19ad6-32d2-0df7-0743-297efaa340a3}">
       <Declaration><![CDATA[PROPERTY ErrorType : T_MAXSTRING]]></Declaration>
       <Get Name="Get" Id="{6c1aedeb-67d1-04eb-0630-eeedbbe111e7}">

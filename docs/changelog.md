@@ -7,6 +7,8 @@
 - Updated interface to support IsSameAs method.
 - Added Error Abstract Base.
 - Error is now disposable
+- Added I_ErrorVisitor
+- Added Accept to Error and I_Error
 
 ## v0.1.0-alpha
 

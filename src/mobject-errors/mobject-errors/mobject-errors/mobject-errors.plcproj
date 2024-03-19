@@ -45,6 +45,9 @@
     <Compile Include="Interfaces\I_Error.TcIO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Interfaces\I_ErrorVisitor.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="mobject-errors.tmc">

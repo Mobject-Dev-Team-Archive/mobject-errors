@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="I_ErrorVisitor" Id="{5bdc8fa4-6a26-0c3d-2223-3e6fbc2335ac}">
+    <Declaration><![CDATA[INTERFACE I_ErrorVisitor
+]]></Declaration>
+    <Method Name="VisitError" Id="{ab8748a2-c095-0124-3089-913bc80740f6}">
+      <Declaration><![CDATA[METHOD VisitError
+VAR_INPUT
+	VisitingError : I_Error;
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

@@ -12,6 +12,16 @@ END_VAR
       <ST><![CDATA[]]></ST>
     </Implementation>
     <Folder Name="Protected" Id="{887f3b17-8e31-0b5c-2d86-65ac4f391b4a}" />
+    <Method Name="Accept" Id="{b7b32aca-0cfe-0ba9-04e1-6ef2344ff81c}">
+      <Declaration><![CDATA[METHOD PUBLIC Accept
+VAR_INPUT
+	Visitor : I_ErrorVisitor;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[Visitor.VisitError(THIS^);]]></ST>
+      </Implementation>
+    </Method>
     <Property Name="ErrorType" Id="{11145bee-4da1-0817-0e4f-35f42a13f4cf}">
       <Declaration><![CDATA[PROPERTY ABSTRACT ErrorType : T_MAXSTRING]]></Declaration>
       <Get Name="Get" Id="{e5a572a9-032a-0662-2f65-dd9e5d3c9125}">
