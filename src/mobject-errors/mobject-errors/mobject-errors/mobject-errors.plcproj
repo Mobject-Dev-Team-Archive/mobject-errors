@@ -19,7 +19,7 @@
     <Company>mobject</Company>
     <Released>false</Released>
     <Title>mobject-errors</Title>
-    <ProjectVersion>0.1.0</ProjectVersion>
+    <ProjectVersion>0.2.0</ProjectVersion>
     <DefaultNamespace>mobject-errors</DefaultNamespace>
     <Placeholder>mobject-errors</Placeholder>
     <Author>mobject dev team</Author>
@@ -36,7 +36,16 @@
     </SelectedLibraryCategories>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Errors\Error.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Errors\NullError.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Interfaces\I_Error.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfaces\I_ErrorVisitor.TcIO">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -53,6 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces" />
+    <Folder Include="Errors" />
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryReference Include="mobject-disposable,1.0.0,mobject">
+      <Namespace>mobject_disposable</Namespace>
+    </LibraryReference>
+    <LibraryReference Include="mobject-serialization,0.4.0,mobject">
+      <Namespace>mobject_serialization</Namespace>
+    </LibraryReference>
   </ItemGroup>
   <ProjectExtensions>
     <PlcProjectOptions>

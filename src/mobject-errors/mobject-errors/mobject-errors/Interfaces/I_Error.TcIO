@@ -1,8 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <Itf Name="I_Error" Id="{039ad3bf-854e-4ff6-9567-e14fd8d09ff8}">
-    <Declaration><![CDATA[INTERFACE I_Error EXTENDS __SYSTEM.IQueryInterface 
+    <Declaration><![CDATA[INTERFACE I_Error EXTENDS I_Serializable, I_Disposable
 ]]></Declaration>
+    <Method Name="Accept" Id="{86ed3858-8652-052f-3064-accf56e64dc5}">
+      <Declaration><![CDATA[METHOD PUBLIC Accept
+VAR_INPUT
+	Visitor : I_ErrorVisitor;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="ErrorType" Id="{c7f19ad6-32d2-0df7-0743-297efaa340a3}">
+      <Declaration><![CDATA[PROPERTY ErrorType : T_MAXSTRING]]></Declaration>
+      <Get Name="Get" Id="{6c1aedeb-67d1-04eb-0630-eeedbbe111e7}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+    <Method Name="IsSameAs" Id="{81bd842e-8f00-08d7-203c-5ecdb55e1c31}">
+      <Declaration><![CDATA[METHOD PUBLIC IsSameAs : BOOL
+VAR_INPUT
+	Error : I_Error;
+END_VAR
+]]></Declaration>
+    </Method>
     <Property Name="Message" Id="{3cfa7994-3809-44a2-babb-d6291d35c9f9}">
       <Declaration><![CDATA[PROPERTY Message : T_MAXSTRING]]></Declaration>
       <Get Name="Get" Id="{e87612e7-bf66-45b2-81e9-c318f4256621}">
