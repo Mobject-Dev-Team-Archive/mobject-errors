@@ -6,7 +6,7 @@
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | Namespace   | mobject-errors                                                                                                                   |
 | Library     | mobject-errors                                                                                                                   |
-| Inheritance | [I_Serializable](http://serializable.mobject.org/#/I_Serializable), [I_Disposable](http://disposable.mobject.org/#/I_Disposable) |
+| Inheritance | [I_Serializable](https://serialization.mobject.org/#/I_Serializable), [I_Disposable](http://disposable.mobject.org/#/I_Disposable) |
 | Implements  |                                                                                                                                  |
 
 ## Remarks
