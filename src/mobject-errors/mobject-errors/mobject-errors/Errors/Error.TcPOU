@@ -23,7 +23,7 @@ END_VAR
       </Implementation>
     </Method>
     <Property Name="ErrorType" Id="{11145bee-4da1-0817-0e4f-35f42a13f4cf}">
-      <Declaration><![CDATA[PROPERTY ABSTRACT ErrorType : T_MAXSTRING]]></Declaration>
+      <Declaration><![CDATA[PROPERTY PUBLIC ABSTRACT ErrorType : T_MAXSTRING]]></Declaration>
       <Get Name="Get" Id="{e5a572a9-032a-0662-2f65-dd9e5d3c9125}">
         <Declaration><![CDATA[VAR
 END_VAR
