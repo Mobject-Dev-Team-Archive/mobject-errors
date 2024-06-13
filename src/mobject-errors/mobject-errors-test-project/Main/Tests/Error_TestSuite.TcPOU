@@ -101,7 +101,7 @@ TEST_FINISHED();]]></ST>
       <Declaration><![CDATA[METHOD PUBLIC TestSerializeWith
 VAR
 	error : MockError(MockErrorType:='test1',MockMessage:='test2');
-	serializer : JsonSerializer;
+	serializer : MockJsonSerializer;
 	result : T_MAXSTRING;
 END_VAR]]></Declaration>
       <Implementation>
